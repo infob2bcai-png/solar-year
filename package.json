@@ -1,0 +1,9 @@
+{
+  "name": "solar-year-public-site",
+  "version": "1.0.0-preview.10018",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/verify.mjs",
+    "deploy": "npm test && npx wrangler@4.112.0 pages deploy public --project-name solar-year --branch main"
+  }
+}

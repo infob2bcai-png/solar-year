@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#080a10">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Солнечные часы и астрономический календарь 360°">
+  <title>Солнечный год</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="typography.css">
+  <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="cards.css">
+  <link rel="stylesheet" href="chips.css">
+  <link rel="stylesheet" href="forms.css">
+  <link rel="stylesheet" href="navigation.css">
+  <link rel="stylesheet" href="states.css">
+  <link rel="stylesheet" href="runtime-layout.css">
+  <link rel="stylesheet" href="calendar.css">
+  <link rel="stylesheet" href="author-note.css">
+  <link rel="stylesheet" href="month-personalization.css">
+</head>
+<body>
+  <div class="launch-screen" id="launchScreen" aria-hidden="true">
+    <div class="launch-orbit">
+      <img src="assets/svg/logo/solar-circle-logo-full-mark.svg" alt="" aria-hidden="true">
+      <div class="launch-marker" id="launchMarker"><span></span></div>
+    </div>
+    <div class="launch-degree" id="launchDegree">—°</div>
+    <div class="launch-copy" id="launchCopy">Определяем положение Солнца</div>
+  </div>
+
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <img class="brand-mark" src="assets/svg/logo/solar-circle-logo-full-mark.svg" alt="" aria-hidden="true">
+        <div><strong data-i18n="brand">Солнечный год</strong><small data-i18n="brandSub">астрономические часы</small></div>
+      </div>
+      <div class="header-actions">
+        <button class="chip-button" id="languageButton" type="button" aria-label="Language">RU</button>
+        <button class="round-button" id="themeButton" type="button" aria-label="Тема"><span class="theme-dark">☾</span><span class="theme-light">☀</span></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="screen active" data-screen="clock" id="clockScreen">
+        <section class="today-hero" aria-label="Today">
+          <img class="today-hero__mark" src="assets/svg/logo/solar-circle-logo-full-mark.svg" alt="" aria-hidden="true">
+          <div class="today-hero__top">
+            <span id="todayHeroDate">—</span>
+            <strong id="todayHeroTime">00:00</strong>
+          </div>
+          <div class="today-hero__brand">
+            <strong data-i18n="brand">Солнечный год</strong>
+            <small>SEE THE WHOLE DAY.</small>
+          </div>
+          <div class="today-hero__meta">
+            <span id="todayHeroSolarDate">—</span>
+            <span id="todayHeroDegree">—°</span>
+          </div>
+        </section>
+
+        <div class="mode-switch" role="tablist" aria-label="Режим отображения">
+          <button type="button" data-mode="dual" class="active" data-i18n="modeDual">Оба</button>
+          <button type="button" data-mode="solar" data-i18n="modeSolar">Солнечное</button>
+          <button type="button" data-mode="civil" data-i18n="modeCivil">Обычное</button>
+        </div>
+
+        <section class="clock-stage" id="clockStage">
+          <svg class="orbit-visual" id="orbitVisual" viewBox="0 0 440 440" role="img" aria-label="Земля и Луна на орбите солнечного года">
+            <g class="orbit-guides" fill="none">
+              <circle cx="220" cy="220" r="154"/>
+              <circle cx="220" cy="220" r="180"/>
+            </g>
+            <g id="orbitMonthTicks" class="orbit-month-ticks"/>
+            <circle id="orbitProgress" class="orbit-arc" cx="220" cy="220" r="154" pathLength="360" transform="rotate(-90 220 220)" fill="none"/>
+            <g id="orbitDegreeLabels" class="orbit-labels" text-anchor="middle" dominant-baseline="central"/>
+            <g id="orbitMonthLabels" class="orbit-month-labels" text-anchor="middle" dominant-baseline="central"/>
+            <image href="assets/svg/orbit/sun.svg" x="130" y="130" width="180" height="180"/>
+            <g class="orbit-sun-copy" text-anchor="middle">
+              <text x="220" y="192" data-i18n="sunPanelTitle">Солнце</text>
+              <text x="220" y="233" id="degreeInteger">—°</text>
+              <text x="220" y="253" id="degreePrecise">—</text>
+            </g>
+            <g id="planetArm">
+              <circle class="orbit-moon-track" cx="0" cy="0" r="30" fill="none"/>
+              <image id="earthImage" href="assets/svg/orbit/earth.svg" x="-22" y="-22" width="44" height="44"/>
+              <image id="moonImage" href="assets/svg/orbit/moon.svg" x="-7" y="-7" width="14" height="14"/>
+            </g>
+          </svg>
+        </section>
+
+        <section class="clock-grid" id="clockGrid" data-mode="dual">
+          <article class="time-card solar-card" id="solarCard">
+            <div class="card-kicker"><span class="live-dot"></span><span data-i18n="solarClock">Солнечные часы</span></div>
+            <time class="clock-time" id="solarTime">00:00:00</time>
+            <div class="solar-date-line"><strong id="solarDate">—</strong><span id="solarWeekday">—</span></div>
+            <div class="solar-code" id="solarCode">AY— · M— · D—</div>
+            <div class="progress-row"><span data-i18n="degreeProgress">Прохождение солнечных суток</span><strong id="solarProgressText">—%</strong></div>
+            <div class="progress-track"><span id="solarProgressBar"></span></div>
+            <div class="day-length-clock" aria-live="polite">
+              <span data-i18n="dayLengthClock">Длина дня</span>
+              <strong id="solarDayLengthClock">24:00:00</strong>
+              <div>
+                <small data-i18n="solarHourLength">1 солнечный час</small>
+                <b id="solarHourLength">—</b>
+              </div>
+              <div>
+                <small data-i18n="dayLengthDelta">К обычным суткам</small>
+                <b id="solarDayDelta">—</b>
+              </div>
+            </div>
+          </article>
+
+          <article class="time-card civil-card" id="civilCard">
+            <div class="card-kicker"><span data-i18n="civilClock">Обычные часы</span><span class="timezone" id="timezone">—</span></div>
+            <time class="clock-time" id="civilTime">00:00:00</time>
+            <div class="civil-date" id="civilDate">—</div>
+            <div class="civil-meta" id="civilMeta">—</div>
+          </article>
+        </section>
+
+        <section class="facts-grid">
+          <article class="fact-card"><span data-i18n="actualStart">Начало расчетных суток</span><strong id="actualStart">—</strong></article>
+          <article class="fact-card"><span data-i18n="actualEnd">Конец расчетных суток</span><strong id="actualEnd">—</strong></article>
+          <article class="fact-card"><span data-i18n="actualDuration">Длина солнечных суток</span><strong id="actualDuration">—</strong></article>
+          <article class="fact-card"><span data-i18n="solarSecond">Одна солнечная секунда</span><strong id="solarSecond">—</strong></article>
+        </section>
+
+        <section class="integrated-day-panel" aria-labelledby="todayIntegratedTitle">
+          <div class="section-title compact-title"><div><small data-i18n="todayIntegratedKicker">День целиком</small><h2 id="todayIntegratedTitle" data-i18n="todayIntegratedTitle">Сегодня</h2></div><button class="sc-btn-secondary compact-action" id="openTodayDetailButton" type="button" data-i18n="open">Открыть</button></div>
+          <div class="integrated-day-meta" id="todayIntegratedMeta">—</div>
+          <div class="integrated-day-grid" id="todayIntegratedGrid"></div>
+        </section>
+      </section>
+
+      <section class="screen" data-screen="month" id="monthScreen">
+        <div class="section-title"><div><small data-i18n="monthStructure">Структура месяца</small><h1 id="monthTitle">—</h1></div><span id="monthRange">—</span></div>
+        <div class="calendar-toolbar">
+          <button type="button" class="round-button" id="calendarPrevious" aria-label="Previous month" title="Previous month"><svg aria-hidden="true"><use href="#chevron-left"/></svg></button>
+          <select id="calendarMonth" aria-label="Month"></select>
+          <input id="calendarYear" type="number" min="1" max="3000" step="1" aria-label="Year">
+          <button type="button" class="round-button" id="calendarNext" aria-label="Next month" title="Next month"><svg aria-hidden="true"><use href="#chevron-right"/></svg></button>
+        </div>
+        <div class="calendar-modes"><select id="calendarSystem" aria-label="Calendar"><option value="solar" data-i18n="modeSolar">Солнечное</option><option value="civil" data-i18n="modeCivil">Обычное</option></select><button type="button" class="sc-btn-secondary compact-action" id="calendarToday" data-i18n="todayIntegratedTitle">Сегодня</button><label><input id="calendarJourney" type="checkbox" checked><span id="calendarJourneyLabel">Выбория</span></label></div>
+        <p id="calendarCivilRange" class="calendar-range" aria-live="polite"></p>
+        <div class="weekday-header" id="weekdayHeader"></div>
+        <div class="month-grid" id="monthGrid"></div>
+        <div id="calendarPhases" class="calendar-phases"></div>
+        <div id="calendarAgenda" class="calendar-agenda"></div>
+        <div class="month-note"><span data-i18n="workRule">Понедельник–четверг — рабочие</span><span data-i18n="restRule">Суббота–воскресенье — выходные</span></div>
+      </section>
+
+      <section class="screen" data-screen="convert" id="convertScreen">
+        <div class="section-title"><div><small data-i18n="converterKicker">Сопоставление систем</small><h1 data-i18n="converterTitle">Обычная дата → солнечная</h1></div></div>
+        <article class="converter-card">
+          <label for="dateInput" data-i18n="localDateTime">Местная дата и время</label>
+          <input id="dateInput" type="datetime-local" step="1">
+          <button class="primary-button" id="convertButton" type="button" data-i18n="calculate">Рассчитать</button>
+          <div class="conversion-result">
+            <div><span data-i18n="solarDateLabel">Солнечная дата</span><strong id="convertDate">—</strong></div>
+            <div><span data-i18n="solarTimeLabel">Солнечное время</span><strong id="convertTime">—</strong></div>
+            <div><span data-i18n="sunPosition">Положение Солнца</span><strong id="convertDegree">—</strong></div>
+            <div><span data-i18n="physicalInterval">Расчетные солнечные сутки</span><strong id="convertInterval">—</strong></div>
+          </div>
+        </article>
+        <article class="day-events-panel">
+          <div class="event-panel-head"><div><strong data-i18n="datesEventsTitle">В этот день</strong><small id="convertEventMeta">—</small></div><span id="convertEventCount">0</span></div>
+          <div class="event-list" id="convertEventsList"></div>
+        </article>
+      </section>
+
+      <section class="screen" data-screen="more" id="moreScreen">
+        <div class="section-title"><div><small data-i18n="moreKicker">Разделы</small><h1 data-i18n="moreTitle">Ещё</h1></div></div>
+        <div class="more-hub-grid" id="moreHubGrid">
+          <button class="more-tile" type="button" data-open-screen="sun"><span class="nav-icon nav-icon--sun" aria-hidden="true"></span><strong data-i18n="navSun">Солнце</strong><small id="moreSunStatus" data-i18n="dataReady">Данные готовы</small></button>
+          <button class="more-tile" type="button" data-open-screen="moon"><span class="nav-icon nav-icon--moon" aria-hidden="true"></span><strong data-i18n="navMoon">Луна</strong><small id="moreMoonStatus" data-i18n="dataReady">Данные готовы</small></button>
+          <button class="more-tile" type="button" data-open-screen="weather"><span class="nav-icon nav-icon--weather" aria-hidden="true"></span><strong data-i18n="weatherTitle">Погода</strong><small id="moreWeatherStatus">—</small></button>
+          <button class="more-tile" type="button" data-open-screen="wind"><span class="nav-icon nav-icon--wind" aria-hidden="true"></span><strong data-i18n="windTitle">Ветер</strong><small id="moreWindStatus">—</small></button>
+          <button class="more-tile" type="button" data-open-screen="sources"><span class="nav-icon nav-icon--data-sources" aria-hidden="true"></span><strong data-i18n="dataSourcesTitle">Источники данных</strong><small id="moreSourcesStatus">—</small></button>
+          <button class="more-tile" type="button" data-open-screen="places"><span class="nav-icon nav-icon--location" aria-hidden="true"></span><strong data-i18n="savedPlacesTitle">Места</strong><small id="morePlacesStatus">0</small></button>
+          <button class="more-tile" type="button" data-open-screen="search"><span class="nav-icon nav-icon--search" aria-hidden="true"></span><strong data-i18n="searchTitle">Поиск</strong><small id="moreSearchStatus" data-i18n="offlineOnly">Offline-only</small></button>
+          <button class="more-tile" type="button" data-open-screen="backup"><span class="nav-icon nav-icon--backup" aria-hidden="true"></span><strong data-i18n="backupTitle">Backup</strong><small id="moreBackupStatus" data-i18n="offlineOnly">Offline-only</small></button>
+          <button class="more-tile" type="button" data-open-screen="settings"><span class="nav-icon nav-icon--more" aria-hidden="true"></span><strong data-i18n="settings">Настройки</strong><small id="moreSettingsStatus" data-i18n="localMode">Локальный режим</small></button>
+          <button class="more-tile" type="button" data-open-screen="about"><span class="nav-icon nav-icon--about" aria-hidden="true"></span><strong data-i18n="navAbout">О проекте</strong><small id="moreAboutStatus">Solar Year</small></button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="sun" id="sunScreen">
+        <div class="section-title"><div><small data-i18n="sunPathTitle">Путь Солнца</small><h1 data-i18n="sunPanelTitle">Солнце</h1></div><span id="sunScreenDate">—</span></div>
+        <section class="screen-hero sun-hero">
+          <img class="screen-hero__art" src="assets/svg/scenes/solar-circle-scene-day.svg" alt="" aria-hidden="true">
+          <div class="sun-path-arc"><span id="sunPathMarker"></span></div>
+          <div class="screen-hero__copy">
+            <small data-i18n="sunPosition">Положение Солнца</small>
+            <strong id="sunScreenDegree">—°</strong>
+            <span id="sunScreenLongitude">—</span>
+          </div>
+        </section>
+        <section class="metric-grid">
+          <article class="metric-card"><span data-i18n="actualDuration">Длина солнечных суток</span><strong id="sunScreenDayLength">—</strong></article>
+          <article class="metric-card"><span data-i18n="solarSecond">Одна солнечная секунда</span><strong id="sunScreenSecond">—</strong></article>
+          <article class="metric-card"><span data-i18n="sunrise">Восход</span><strong id="sunRiseTime">—</strong></article>
+          <article class="metric-card"><span data-i18n="sunset">Закат</span><strong id="sunSetTime">—</strong></article>
+          <article class="metric-card"><span data-i18n="solarNoon">Полдень</span><strong id="sunTransitTime">—</strong></article>
+          <article class="metric-card"><span data-i18n="daylightStatus">Световой статус</span><strong id="sunDaylightStatus">—</strong></article>
+          <article class="metric-card"><span data-i18n="weatherTitle">Погода</span><strong id="sunWeatherSummary">—</strong></article>
+        </section>
+        <article class="astro-detail-panel">
+          <strong data-i18n="twilightTitle">Сумерки</strong>
+          <div class="astro-detail-grid">
+            <div><span data-i18n="civilDawn">Гражданский рассвет</span><b id="sunCivilDawn">—</b></div>
+            <div><span data-i18n="civilDusk">Гражданские сумерки</span><b id="sunCivilDusk">—</b></div>
+            <div><span data-i18n="nauticalDawn">Навигационный рассвет</span><b id="sunNauticalDawn">—</b></div>
+            <div><span data-i18n="nauticalDusk">Навигационные сумерки</span><b id="sunNauticalDusk">—</b></div>
+          </div>
+          <p id="sunDataStatus">—</p>
+        </article>
+      </section>
+
+      <section class="screen" data-screen="moon" id="moonScreen">
+        <div class="section-title"><div><small data-i18n="moonCycleTitle">Лунный цикл</small><h1 data-i18n="moonPanelTitle">Луна</h1></div><span id="moonScreenDate">—</span></div>
+        <section class="screen-hero moon-hero">
+          <img class="screen-hero__art" src="assets/svg/scenes/solar-circle-scene-night.svg" alt="" aria-hidden="true">
+          <div class="moon-disc" aria-hidden="true"></div>
+          <div class="screen-hero__copy">
+            <small data-i18n="phase">Фаза</small>
+            <strong id="moonScreenPhase">—</strong>
+            <span><b id="moonScreenIllumination">—</b> · <em id="moonScreenSource">—</em></span>
+          </div>
+        </section>
+        <section class="metric-grid">
+          <article class="metric-card"><span data-i18n="moonrise">Восход Луны</span><strong id="moonRiseTime">—</strong></article>
+          <article class="metric-card"><span data-i18n="moonset">Заход Луны</span><strong id="moonSetTime">—</strong></article>
+          <article class="metric-card"><span data-i18n="moonTransit">Кульминация</span><strong id="moonTransitTime">—</strong></article>
+          <article class="metric-card"><span data-i18n="eclipticLongitude">Эклиптическая долгота</span><strong id="moonEclipticLongitude">—</strong></article>
+          <article class="metric-card"><span data-i18n="eclipticLatitude">Эклиптическая широта</span><strong id="moonEclipticLatitude">—</strong></article>
+          <article class="metric-card"><span data-i18n="moonDataStatus">Статус данных</span><strong id="moonDataStatus">—</strong></article>
+        </section>
+        <article class="astro-detail-panel">
+          <strong data-i18n="offlineFirstTitle">Offline-first</strong>
+          <p data-i18n="moonNoFakeText">Лунная модель показывает только рассчитанные или доступные через adapter значения. Недостающие данные не подменяются декоративными числами.</p>
+        </article>
+      </section>
+
+      <section class="screen" data-screen="weather" id="weatherScreen">
+        <div class="section-title"><div><small data-i18n="weatherKicker">Open-Meteo</small><h1 data-i18n="weatherTitle">Погода</h1></div><button class="sc-btn-secondary compact-action" id="weatherScreenRefreshButton" type="button" data-i18n="refreshWeather">Обновить</button></div>
+        <section class="weather-current-grid">
+          <article class="weather-current-card">
+            <span id="weatherScreenStatus">—</span>
+            <strong id="weatherCurrentTemp">—</strong>
+            <small id="weatherCurrentLabel">—</small>
+          </article>
+          <article class="weather-detail-grid">
+            <div><span data-i18n="feelsLike">Ощущается</span><b id="weatherFeelsLike">—</b></div>
+            <div><span data-i18n="humidity">Влажность</span><b id="weatherHumidity">—</b></div>
+            <div><span data-i18n="precipitation">Осадки</span><b id="weatherPrecipitation">—</b></div>
+            <div><span data-i18n="cloudCover">Облачность</span><b id="weatherCloudCover">—</b></div>
+            <div><span data-i18n="windTitle">Ветер</span><b id="weatherWindSummary">—</b></div>
+            <div><span data-i18n="updatedAt">Обновлено</span><b id="weatherUpdatedAt">—</b></div>
+          </article>
+        </section>
+        <section class="forecast-grid">
+          <article class="forecast-panel"><div class="event-panel-head"><div><strong data-i18n="hourlyForecast">По часам</strong><small id="weatherHourlyMeta">—</small></div></div><div class="forecast-list" id="weatherHourlyList"></div></article>
+          <article class="forecast-panel"><div class="event-panel-head"><div><strong data-i18n="dailyForecast">По дням</strong><small id="weatherDailyMeta">—</small></div></div><div class="forecast-list" id="weatherDailyList"></div></article>
+        </section>
+        <article class="source-card weather-attribution"><strong>Open-Meteo</strong><p>CC BY 4.0</p><a id="weatherAttributionLink" href="https://open-meteo.com/" rel="noopener">Weather data by Open-Meteo.com</a></article>
+      </section>
+
+      <section class="screen" data-screen="wind" id="windScreen">
+        <div class="section-title"><div><small data-i18n="windHeight">Прогноз · 10 м</small><h1 data-i18n="windTitle">Ветер</h1></div><button class="wind-icon-button" id="windRefreshButton" type="button"><svg aria-hidden="true"><use href="#refresh-cw"></use></svg></button></div>
+        <div id="windLocationTabs" class="wind-location-tabs" role="tablist"></div>
+        <div class="wind-favorite-selectors">
+          <label><span data-i18n="windFavoriteOne">Избранное 1</span><select id="windFavoriteOne"></select></label>
+          <label><span data-i18n="windFavoriteTwo">Избранное 2</span><select id="windFavoriteTwo"></select></label>
+        </div>
+        <div class="wind-places-actions"><button id="windFavoritesButton" type="button" class="wind-now" data-i18n="windFavorites">Избранные места</button><button id="windRefreshAllButton" type="button" class="wind-now"><svg aria-hidden="true"><use href="#refresh-cw"></use></svg><span data-i18n="windRefreshAll">Обновить все</span></button></div>
+        <div id="windLocationPanel" role="tabpanel" aria-labelledby="windLocationTab0">
+        <div class="wind-toolbar">
+          <button class="wind-place" id="windLocationButton" type="button"><svg aria-hidden="true"><use href="#map-pin"></use></svg><span id="windLocationName">—</span></button>
+          <select id="windUnitSelect"><option value="m/s">м/с</option><option value="km/h">км/ч</option><option value="kn">уз</option></select>
+        </div>
+        <div class="wind-source-line" role="status"><span id="windScreenStatus">—</span><span id="windUpdatedAt">—</span></div>
+        <section class="wind-overview">
+          <div class="wind-compass" id="windCompass"></div>
+          <div class="wind-reading" aria-live="polite">
+            <span id="windSelectedTime">—</span>
+            <strong id="windSpeedValue">—</strong>
+            <span id="windGustValue">—</span>
+            <b id="windDirectionValue">—</b>
+          </div>
+        </section>
+        <div class="wind-time-head"><h2 data-i18n="hourlyForecast">По часам</h2><button class="wind-now" id="windNowButton" type="button" data-i18n="windNow">Сейчас</button></div>
+        <div class="wind-chart-legend"><span class="wind-speed-key" data-i18n="windSpeed">Скорость</span><span class="wind-gust-key" data-i18n="windGust">Порыв</span><span id="windChartUnit">м/с</span></div>
+        <div id="windChart" class="wind-chart"></div>
+        <div class="wind-timeline"><input id="windTimeSlider" type="range" min="0" max="0" step="1" value="0" disabled><span id="windHourlyMeta">—</span></div>
+        <div class="wind-hourly-scroll" tabindex="0"><div id="windHourlyList" class="wind-hourly-list"></div></div>
+        <section class="wind-daily"><h2 data-i18n="windDailyTitle">По дням · максимумы</h2><div id="windDailyList"></div></section>
+        <footer class="wind-attribution"><a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo · CC BY 4.0</a><span id="windTimezone">—</span></footer>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="places" id="placesScreen">
+        <div class="section-title"><div><small data-i18n="locationTitle">Локация Солнца</small><h1 data-i18n="savedPlacesTitle">Места</h1></div><button class="sc-btn-secondary compact-action" id="newPlaceButton" type="button" data-i18n="addPlace">Добавить</button></div>
+        <p id="favoritePlacesStatus" class="location-privacy" role="status"></p>
+        <form class="editor-form place-form" id="placeForm">
+          <input type="hidden" id="placeEditId">
+          <div class="location-search-row"><label><span data-i18n="citySearchLabel">Город</span><input id="placeCitySearchInput" type="search" autocomplete="off"></label><button id="placeCitySearchButton" type="button" class="sc-btn-secondary compact-action" data-i18n="searchTitle">Поиск</button></div>
+          <div id="placeCityResults" class="city-results" role="status"></div>
+          <div class="editor-grid">
+            <label><span data-i18n="titleLabel">Название</span><input id="placeTitleInput" type="text" maxlength="80" placeholder="Home"></label>
+            <label><span data-i18n="placeKind">Тип</span><select id="placeKindSelect"><option value="home" data-i18n="placeHome">Дом</option><option value="work" data-i18n="placeWork">Работа</option><option value="custom" data-i18n="placeCustom">Место</option></select></label>
+            <label><span data-i18n="latitude">Широта</span><input id="placeLatitudeInput" type="number" inputmode="decimal" min="-90" max="90" step="any" required></label>
+            <label><span data-i18n="longitude">Долгота</span><input id="placeLongitudeInput" type="number" inputmode="decimal" min="-180" max="180" step="any" required></label>
+            <label><span data-i18n="timezoneMode">Выбор часового пояса</span><select id="placeTimezoneMode"><option value="auto" data-i18n="timezoneAuto">По местоположению</option><option value="manual" data-i18n="locationManual">Вручную</option></select></label>
+            <label><span data-i18n="timezone">Часовой пояс</span><input id="placeTimezoneInput" type="text" autocomplete="off"></label>
+            <label><span data-i18n="activePlace">Активное</span><select id="placeActiveSelect"><option value="true" data-i18n="enabledYes">Да</option><option value="false" data-i18n="enabledNo">Нет</option></select></label>
+            <label class="place-favorite-choice"><input id="placeFavoriteInput" type="checkbox"><span data-i18n="windFavorite">Избранное для погоды и ветра</span></label>
+          </div>
+          <div class="editor-actions"><button class="primary-button" type="submit" data-i18n="save">Сохранить</button><button class="sc-btn-secondary compact-action" id="clearPlaceFormButton" type="button" data-i18n="cancel">Отмена</button><button class="danger-button" id="deletePlaceButton" type="button" data-i18n="delete">Удалить</button></div>
+        </form>
+        <div class="source-registry" id="savedPlacesList"></div>
+      </section>
+
+      <section class="screen" data-screen="search" id="searchScreen">
+        <div class="section-title"><div><small data-i18n="offlineOnly">Offline-only</small><h1 data-i18n="searchTitle">Поиск</h1></div><span id="searchSummary">0</span></div>
+        <article class="converter-card search-panel">
+          <label for="searchInput" data-i18n="searchInputLabel">Запрос</label>
+          <input id="searchInput" type="search" autocomplete="off">
+        </article>
+        <div class="search-results" id="searchResults"></div>
+      </section>
+
+      <section class="screen" data-screen="backup" id="backupScreen">
+        <div class="section-title"><div><small data-i18n="offlineOnly">Offline-only</small><h1 data-i18n="backupTitle">Backup</h1></div><span id="backupStatus">—</span></div>
+        <article class="converter-card backup-panel">
+          <div class="editor-actions"><button class="primary-button" id="exportBackupButton" type="button" data-i18n="exportBackup">Экспорт</button><button class="sc-btn-secondary compact-action" id="importBackupButton" type="button" data-i18n="importBackup">Импорт</button>
+            <button class="round-button" id="saveBackupFileButton" type="button" title="Сохранить файл" aria-label="Сохранить файл"><svg width="20" height="20" aria-hidden="true"><use href="#download"></use></svg></button>
+            <button class="round-button" id="openBackupFileButton" type="button" title="Открыть файл" aria-label="Открыть файл"><svg width="20" height="20" aria-hidden="true"><use href="#folder-open"></use></svg></button>
+          </div>
+          <input id="backupFileInput" type="file" accept="application/json,.json" hidden>
+          <label for="backupPayload" data-i18n="backupPayloadLabel">Данные</label>
+          <textarea id="backupPayload" rows="12" spellcheck="false"></textarea>
+        </article>
+      </section>
+
+      <section class="screen" data-screen="settings" id="settingsScreen">
+        <div class="section-title"><div><small data-i18n="personalization">Персонализация</small><h1 data-i18n="settings">Настройки</h1></div></div>
+        <div class="settings-list">
+          <article class="setting-row"><div><strong data-i18n="defaultDisplay">Отображение по умолчанию</strong><small data-i18n="defaultDisplayDesc">Оба времени или только одна система</small></div><select id="defaultMode"><option value="dual" data-i18n="modeDual">Оба</option><option value="solar" data-i18n="modeSolar">Солнечное</option><option value="civil" data-i18n="modeCivil">Обычное</option></select></article>
+          <article class="setting-row"><div><strong data-i18n="launchSetting">Астрономическая заставка</strong><small data-i18n="launchSettingDesc">Показывать текущий градус при запуске</small></div><label class="switch"><input type="checkbox" id="launchToggle" checked><span></span></label></article>
+          <article class="setting-row"><div><strong data-i18n="language">Язык</strong><small data-i18n="languageDesc">Русский используется по умолчанию</small></div><select id="languageSelect"><option value="ru">Русский</option><option value="en">English</option></select></article>
+          <article class="setting-row"><div><strong data-i18n="appearance">Оформление</strong><small data-i18n="appearanceDesc">Светлая, тёмная или авто по Солнцу</small></div><select id="themeSelect"><option value="dark" data-i18n="dark">Тёмная</option><option value="light" data-i18n="light">Светлая</option><option value="auto-sun" data-i18n="autoSun">Auto Sun</option></select></article>
+          <article class="setting-row setting-row--stacked" id="locationSettings" aria-labelledby="locationSettingsTitle">
+            <div><strong id="locationSettingsTitle" tabindex="-1" data-i18n="locationTitle">Локация Солнца</strong><small id="locationStatus" data-i18n="locationDesc">Для Auto Sun можно указать координаты вручную</small></div>
+            <div class="setting-controls-grid">
+              <div class="location-search-row"><label><span data-i18n="citySearch">Город</span><input id="citySearchInput" type="search" autocomplete="off"></label><button class="sc-btn-secondary compact-action" id="citySearchButton" type="button" data-i18n="searchTitle">Поиск</button></div>
+              <div id="citySearchResults" class="city-results"></div>
+              <small id="citySearchStatus" role="status"></small>
+              <button class="sc-btn-secondary compact-action" id="gpsLocationButton" type="button"><span class="nav-icon nav-icon--places" aria-hidden="true"></span><span data-i18n="getGps">Получить GPS</span></button>
+              <small id="gpsStatus" role="status"></small>
+              <label><span data-i18n="locationMode">Режим</span><select id="locationMode"><option value="device" data-i18n="locationAuto">Устройство</option><option value="manual" data-i18n="locationManual">Вручную</option><option value="gps" data-i18n="gpsSaved">GPS: сохранённая позиция</option></select></label>
+              <label><span data-i18n="titleLabel">Название</span><input id="locationTitleInput" type="text" maxlength="80"></label>
+              <label><span data-i18n="latitude">Широта</span><input id="latitudeInput" type="number" inputmode="decimal" min="-90" max="90" step="any" placeholder="55.7558"></label>
+              <label><span data-i18n="longitude">Долгота</span><input id="longitudeInput" type="number" inputmode="decimal" min="-180" max="180" step="any" placeholder="37.6173"></label>
+              <label><span data-i18n="timezoneMode">Выбор часового пояса</span><select id="timezoneMode"><option value="auto" data-i18n="timezoneAuto">По местоположению</option><option value="manual" data-i18n="locationManual">Вручную</option></select></label>
+              <label><span data-i18n="timezone">Часовой пояс</span><select id="timezoneInput"></select></label>
+              <button class="sc-btn-secondary compact-action" id="saveLocationButton" type="button" data-i18n="saveLocation">Сохранить</button>
+            </div>
+            <small class="location-privacy" data-i18n="locationPrivacy">GPS только по запросу. Поиск города и обновление погоды: Open-Meteo.</small>
+          </article>
+          <article class="setting-row"><div><strong data-i18n="localNotifications">Уведомления</strong><small id="notificationStatus" data-i18n="notificationStatusChecking">Проверяем статус</small></div><button class="sc-btn-secondary compact-action" id="notificationEnableButton" type="button" data-i18n="enableNotifications">Включить</button></article>
+          <article class="setting-row"><div><strong data-i18n="weatherTitle">Погода</strong><small id="weatherStatus" data-i18n="weatherNeedsLocation">Нужна ручная локация</small></div><button class="sc-btn-secondary compact-action" id="weatherRefreshButton" type="button" data-i18n="refreshWeather">Обновить</button></article>
+          <article class="setting-row"><div><strong data-i18n="savedPlacesTitle">Места</strong><small id="savedPlacesStatus">0</small></div><button class="sc-btn-secondary compact-action" type="button" data-open-screen="places" data-i18n="open">Открыть</button></article>
+          <article class="setting-row"><div><strong data-i18n="searchTitle">Поиск</strong><small data-i18n="offlineOnly">Offline-only</small></div><button class="sc-btn-secondary compact-action" type="button" data-open-screen="search" data-i18n="open">Открыть</button></article>
+          <article class="setting-row"><div><strong data-i18n="backupTitle">Backup</strong><small data-i18n="offlineOnly">Offline-only</small></div><button class="sc-btn-secondary compact-action" type="button" data-open-screen="backup" data-i18n="open">Открыть</button></article>
+          <article class="setting-row"><div><strong data-i18n="privacyTitle">Приватность</strong><small data-i18n="privacyText">Личные данные остаются в локальном хранилище устройства</small></div><span class="settings-pill" data-i18n="offlineOnly">Offline-only</span></article>
+          <article class="setting-row"><div><strong data-i18n="researchTitle">Маркетинговое исследование</strong><small id="researchStatus">Данные не отправляются</small></div><button class="sc-btn-secondary compact-action" id="researchOpenButton" type="button" data-i18n="open">Открыть</button></article>
+          <article class="setting-row"><div><strong data-i18n="dataSourcesTitle">Источники данных</strong><small id="sourceStatus">—</small></div><button class="sc-btn-secondary compact-action" type="button" data-open-screen="sources" data-i18n="open">Открыть</button></article>
+          <article class="setting-row"><div><strong data-i18n="dateTools">Даты и конвертер</strong><small data-i18n="dateToolsDesc">Сопоставление обычной и солнечной даты</small></div><button class="sc-btn-secondary compact-action" type="button" data-open-screen="convert" data-i18n="open">Открыть</button></article>
+          <article class="setting-row"><div><strong data-i18n="aboutProject">О проекте</strong><small data-i18n="aboutProjectDesc">Идея, благодарности, лицензии и контакт</small></div><button class="sc-btn-secondary compact-action" type="button" data-open-screen="about" data-i18n="open">Открыть</button></article>
+          <article class="setting-row author-settings-row"><div><strong data-author-label="contact">Связь с автором</strong><a data-author-email></a></div><button class="sc-btn-secondary compact-action" type="button" data-open-author data-author-label="heading">Слова автора</button></article>
+        </div>
+        <article class="explain-card"><strong data-i18n="howSolarTimeWorks">Как работают солнечные часы</strong><p data-i18n="howSolarTimeWorksText">Солнечные сутки остаются привязанными к привычной локальной полуночи. Их астрономическая длина делится на 24 часа, поэтому солнечная секунда немного длиннее или короче обычной, без резкого сдвига времени.</p></article>
+      </section>
+
+      <section class="screen" data-screen="sources" id="sourcesScreen">
+        <div class="section-title"><div><small data-i18n="sourcesKicker">Реестр</small><h1 data-i18n="dataSourcesTitle">Источники данных</h1></div><button class="sc-btn-secondary compact-action" type="button" data-open-screen="settings" data-i18n="settings">Настройки</button></div>
+        <div class="source-registry" id="sourceRegistry"></div>
+      </section>
+
+      <section class="screen" data-screen="about" id="aboutScreen">
+        <div class="section-title"><div><small data-i18n="aboutKicker">О проекте</small><h1 data-i18n="aboutTitle">Solar Year</h1></div></div>
+        <section class="author-note" id="authorNote" aria-labelledby="authorNoteTitle">
+          <h2 id="authorNoteTitle" tabindex="-1" data-author-label="heading">Слова автора</h2>
+          <p class="author-byline"><span data-author-name></span><span data-author-label="excerpt">Из авторского эссе</span></p>
+          <div id="authorExcerpt" class="author-excerpt"></div>
+          <a data-author-email></a>
+          <button id="authorReturnDay" type="button" class="sc-btn-secondary compact-action" hidden data-author-label="returnDay">Вернуться к дню</button>
+          <details id="authorEssay" class="author-essay">
+            <summary data-author-label="read">Странник по звёздам: полный авторский текст</summary>
+            <p class="author-context" data-author-label="context">Эссе ALEX_DOC о романе Джека Лондона и философии Выбории. Оригинал на русском языке.</p>
+            <p id="authorEssayStatus" role="status"></p>
+            <button id="authorEssayRetry" class="round-button" type="button" hidden><svg width="20" height="20" aria-hidden="true"><use href="#refresh-cw"></use></svg></button>
+            <label id="authorEssayIndexLabel" hidden><span data-author-label="contents">Раздел текста</span><select id="authorEssayIndex"></select></label>
+            <article id="authorEssayBody" lang="ru"></article>
+            <button id="authorEssayClose" type="button" class="sc-btn-secondary compact-action" data-author-label="close">Свернуть текст</button>
+          </details>
+        </section>
+        <article class="about-card">
+          <strong data-i18n="aboutIdeaTitle">Идея проекта</strong>
+          <p data-i18n="aboutIdeaText">Solar Year связывает человека с природным временем, движением Солнца и Луны, погодой и исторической памятью. Это самостоятельный проект, который развивается на основе собственного календарного канона и открытой технологической экосистемы.</p>
+        </article>
+        <article class="about-card">
+          <strong data-i18n="aboutTimeCanonTitle">Зачем нужна новая синхронизация времени</strong>
+          <p data-i18n="aboutTimeCanonText">Привычное распределение времени стало культурным архетипом в эпоху механических часов: календарь, часы и движение Солнца существовали рядом, но не могли ежедневно синхронизироваться. Solar Year использует вычисления, чтобы показать календарь, обычное время, солнечное время и длину текущего дня как единую систему.</p>
+        </article>
+        <article class="about-card">
+          <strong data-i18n="aboutGratitudeTitle">Благодарности</strong>
+          <p data-i18n="aboutGratitudeText">Solar Year не возник в пустоте. Современное программное обеспечение развивается благодаря разработчикам, исследователям и сообществам, которые открывают исходный код, делятся алгоритмами, создают библиотеки, карты, погодные инструменты и способы визуализации сложных природных процессов.</p>
+        </article>
+        <div class="credits-list" id="creditsList"></div>
+        <article class="about-card">
+          <strong data-i18n="openSourceTitle">Open Source / Лицензии</strong>
+          <p data-i18n="openSourceText">Упоминание проекта или автора означает признание технологического или информационного вклада через open-source работу. Оно не означает официального партнёрства, трудовых отношений, спонсорства или одобрения Solar Year авторами этих проектов, если такое сотрудничество отдельно не объявлено.</p>
+        </article>
+        <article class="about-card contact-card">
+          <strong data-i18n="contactTitle">Контакт и поддержка</strong>
+          <div class="contact-row"><span data-i18n="publicSignature">Публичная подпись</span><a id="publicHandle" href="#" rel="noopener">—</a></div>
+          <div class="contact-row"><span data-i18n="publicEmail">Email</span><a id="publicEmail" href="#">—</a></div>
+          <p data-i18n="privacyContactText">Телефон, адрес и другие личные данные в приложение не добавляются.</p>
+        </article>
+        <footer class="app-footer">
+          <strong>Solar Year</strong>
+          <span id="footerSignature">—</span>
+        </footer>
+      </section>
+    </main>
+
+    <section class="day-detail-sheet" id="dayDetailSheet" hidden aria-hidden="true">
+      <div class="day-detail-backdrop" data-close-day-sheet></div>
+      <article class="day-detail-panel" role="dialog" aria-modal="true" aria-labelledby="dayDetailTitle">
+        <header class="day-detail-head">
+          <div><small id="dayDetailMeta">—</small><h2 id="dayDetailTitle">—</h2></div>
+          <button class="round-button" type="button" data-close-day-sheet aria-label="Close">×</button>
+        </header>
+        <div class="day-detail-actions">
+          <button class="sc-btn-secondary compact-action" type="button" data-editor-open="note" data-i18n="addNote">Заметка</button>
+          <button class="sc-btn-secondary compact-action" type="button" data-editor-open="reminder" data-i18n="addReminder">Напоминание</button>
+        </div>
+        <div class="day-detail-content" id="dayDetailContent"></div>
+
+        <form class="editor-form" id="noteEditor" hidden>
+          <input type="hidden" id="noteEditId">
+          <label><span data-i18n="titleLabel">Название</span><input id="noteTitleInput" type="text" maxlength="80"></label>
+          <label><span data-i18n="noteTextLabel">Текст</span><textarea id="noteTextInput" rows="4" maxlength="1200"></textarea></label>
+          <label><span data-i18n="attachTo">Привязать к</span><select id="noteAttachSelect"><option value="both" data-i18n="attachBoth">Обеим датам</option><option value="civil" data-i18n="modeCivil">Обычное</option><option value="solar" data-i18n="modeSolar">Солнечное</option></select></label>
+          <div class="editor-actions"><button class="primary-button" type="submit" data-i18n="save">Сохранить</button><button class="sc-btn-secondary compact-action" type="button" data-editor-cancel data-i18n="cancel">Отмена</button><button class="danger-button" type="button" id="deleteNoteButton" data-i18n="delete">Удалить</button></div>
+        </form>
+
+        <form class="editor-form" id="reminderEditor" hidden>
+          <input type="hidden" id="reminderEditId">
+          <label><span data-i18n="titleLabel">Название</span><input id="reminderTitleInput" type="text" maxlength="80"></label>
+          <label><span data-i18n="reminderTextLabel">Текст</span><textarea id="reminderTextInput" rows="3" maxlength="800"></textarea></label>
+          <div class="editor-grid">
+            <label><span data-i18n="routineKindLabel">Категория</span><select id="reminderCategorySelect"><option value="work" data-i18n="categoryWork">Работа</option><option value="rest" data-i18n="categoryRest">Отдых</option><option value="habit" data-i18n="habit">Привычка</option><option value="training" data-i18n="training">Тренировка</option></select></label>
+            <label id="reminderCivilDateField"><span data-i18n="date">Дата</span><input id="reminderCivilDateInput" type="date"></label>
+            <div id="reminderSolarDateFields" class="reminder-solar-fields" hidden><label><span data-i18n="calendarYearLabel">Год</span><input id="reminderSolarYearInput" type="number" min="1" max="3000" step="1"></label><label><span data-i18n="calendarMonthLabel">Месяц</span><select id="reminderSolarMonthInput"></select></label><label><span data-i18n="calendarDayLabel">День</span><input id="reminderSolarDayInput" type="number" min="1" max="30" step="1"></label></div>
+            <label><span data-i18n="timeLabel">Время</span><input id="reminderTimeInput" type="time"></label>
+            <label><span data-i18n="recurrenceScope">Календарь</span><select id="reminderScopeSelect"><option value="civil" data-i18n="modeCivil">Обычное</option><option value="solar" data-i18n="modeSolar">Солнечное</option></select></label>
+            <label><span data-i18n="recurrenceFrequency">Повтор</span><select id="reminderFrequencySelect"><option value="once" data-i18n="once">Один раз</option><option value="daily" data-i18n="daily">Ежедневно</option><option value="weekly" data-i18n="weekly">Еженедельно</option><option value="monthly" data-i18n="monthly">Ежемесячно</option><option value="yearly" data-i18n="yearly">Ежегодно</option></select></label>
+            <label><span data-i18n="enabledLabel">Активно</span><select id="reminderEnabledSelect"><option value="true" data-i18n="enabledYes">Да</option><option value="false" data-i18n="enabledNo">Нет</option></select></label>
+          </div>
+          <div class="editor-actions"><button class="primary-button" type="submit" data-i18n="save">Сохранить</button><button class="sc-btn-secondary compact-action" type="button" data-editor-cancel data-i18n="cancel">Отмена</button><button class="danger-button" type="button" id="deleteReminderButton" data-i18n="delete">Удалить</button></div>
+        </form>
+
+        <form class="editor-form" id="routineEditor" hidden>
+          <input type="hidden" id="routineEditId">
+          <label><span data-i18n="titleLabel">Название</span><input id="routineTitleInput" type="text" maxlength="80"></label>
+          <label><span data-i18n="routineTextLabel">Описание</span><textarea id="routineTextInput" rows="3" maxlength="800"></textarea></label>
+          <div class="editor-grid">
+            <label><span data-i18n="routineKindLabel">Категория</span><select id="routineKindSelect"><option value="work" data-i18n="categoryWork">Работа</option><option value="rest" data-i18n="categoryRest">Отдых</option><option value="habit" data-i18n="habit">Привычка</option><option value="training" data-i18n="training">Тренировка</option></select></label>
+            <label><span data-i18n="timeLabel">Время</span><input id="routineTimeInput" type="time"></label>
+            <label><span data-i18n="recurrenceScope">Календарь</span><select id="routineScopeSelect"><option value="civil" data-i18n="modeCivil">Обычное</option><option value="solar" data-i18n="modeSolar">Солнечное</option></select></label>
+            <label><span data-i18n="recurrenceFrequency">Повтор</span><select id="routineFrequencySelect"><option value="daily" data-i18n="daily">Ежедневно</option><option value="weekly" data-i18n="weekly">Еженедельно</option><option value="monthly" data-i18n="monthly">Ежемесячно</option><option value="yearly" data-i18n="yearly">Ежегодно</option></select></label>
+            <label><span data-i18n="enabledLabel">Активно</span><select id="routineEnabledSelect"><option value="true" data-i18n="enabledYes">Да</option><option value="false" data-i18n="enabledNo">Нет</option></select></label>
+          </div>
+          <div class="editor-actions"><button class="primary-button" type="submit" data-i18n="save">Сохранить</button><button class="sc-btn-secondary compact-action" type="button" data-editor-cancel data-i18n="cancel">Отмена</button><button class="danger-button" type="button" id="deleteRoutineButton" data-i18n="delete">Удалить</button></div>
+        </form>
+      </article>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Основная навигация">
+      <button type="button" class="active" data-route="today" data-target="clock"><span class="nav-icon nav-icon--today" aria-hidden="true"></span><small data-i18n="navClock">Сегодня</small></button>
+      <button type="button" data-route="calendar" data-target="month"><span class="nav-icon nav-icon--calendar" aria-hidden="true"></span><small data-i18n="navMonth">Календарь</small></button>
+      <button type="button" data-route="time" data-target="clock"><span class="nav-icon nav-icon--time" aria-hidden="true"></span><small data-i18n="solarClock">Солнечные часы</small></button>
+      <button type="button" data-route="dates" data-target="convert"><span class="nav-icon nav-icon--dates" aria-hidden="true"></span><small data-i18n="navConvert">Конвертер</small></button>
+      <button type="button" data-route="more" data-target="more"><span class="nav-icon nav-icon--more" aria-hidden="true"></span><small data-i18n="navMore">Ещё</small></button>
+    </nav>
+  </div>
+
+  <dialog id="researchDialog" class="research-dialog" aria-labelledby="researchDialogTitle">
+    <h2 id="researchDialogTitle" data-i18n="researchTitle">Маркетинговое исследование</h2>
+    <p data-i18n="researchInvitation">Предлагаем принять участие в маркетинговом исследовании.</p>
+    <p data-i18n="researchFields">Примерный район с шагом 0,5°, часовой пояс, язык, версия приложения, Android или web, дата и случайный ID участника.</p>
+    <p data-i18n="researchExclusions">Без точного GPS, имени, контактов, заметок и напоминаний. Хранится только последняя запись, до 30 дней.</p>
+    <p data-i18n="researchNoServer">Сервер ещё не подключён. Сейчас данные остаются на устройстве. Перед первой отправкой потребуется новое согласие с адресом получателя.</p>
+    <label class="research-choice"><input id="researchChoice" type="checkbox" checked><span data-i18n="researchParticipate">Участвовать</span></label>
+    <div class="editor-actions"><button id="researchConfirmButton" class="primary-button" type="button" data-i18n="researchConfirm">Подтвердить выбор</button><button id="researchDeclineButton" class="sc-btn-secondary compact-action" type="button" data-i18n="researchDecline">Не участвовать</button></div>
+    <button id="researchDeleteButton" class="danger-button" type="button" data-i18n="researchDelete">Отключить и удалить данные</button>
+    <details><summary data-i18n="researchPreview">Подготовленные данные</summary><pre id="researchPreview"></pre></details>
+    <form method="dialog"><button class="sc-btn-secondary compact-action" type="submit" data-i18n="cancel">Отмена</button></form>
+  </dialog>
+  <script src="astronomy.browser.min.js"></script>
+  <script src="core/calendar-core.js"></script>
+  <script src="core/calendar-grammar.js"></script>
+  <script src="vendor/temporal.js"></script>
+  <script src="vendor/tz-lookup.js"></script>
+  <script src="core/orbit-view-model.js"></script>
+  <script src="core/time-core.js"></script>
+  <script src="core/project-meta.js"></script>
+  <script src="core/astronomy-adapter.js"></script>
+  <script src="core/location-core.js"></script>
+  <script src="core/location-provider.js"></script>
+  <script src="core/sun-core.js"></script>
+  <script src="core/moon-core.js"></script>
+  <script src="core/legacy-projection-engine.js"></script>
+  <script src="core/event-core.js"></script>
+  <script src="core/local-persistence-core.js"></script>
+  <script src="core/personal-core.js"></script>
+  <script src="core/event-repository.js"></script>
+  <script src="core/notes-repository.js"></script>
+  <script src="core/reminder-repository.js"></script>
+  <script src="core/reminder-notifications.js"></script>
+  <script src="core/routine-repository.js"></script>
+  <script src="core/event-pack-qa.js"></script>
+  <script src="data/offline-events/solar-circle-events-pack.v0.1.0.js"></script>
+  <script src="core/weather-provider.js"></script>
+  <script src="core/wind-core.js"></script>
+  <script src="core/wind-view.js"></script>
+  <script src="core/geomap-core.js"></script>
+  <script src="core/saved-places-repository.js"></script>
+  <script src="core/wind-locations.js"></script>
+  <script src="core/global-search.js"></script>
+  <script src="core/backup-core.js"></script>
+  <script src="core/research-core.js"></script>
+  <script src="core/day-context.js"></script>
+  <script src="core/calendar-navigation.js"></script>
+  <script src="vendor/dompurify.js"></script>
+  <script src="core/month-svg-assets.js"></script>
+  <script src="core/month-journey-core.js"></script>
+  <script src="core/month-personalization-core.js"></script>
+  <script src="core/month-personalization-repository.js"></script>
+  <script src="core/month-personalization-view.js"></script>
+  <script src="data/vyboria-reading.js"></script>
+  <script src="core/vyboria-guide.js"></script>
+  <script src="core/theme-core.js"></script>
+  <script src="core/route-registry.js"></script>
+  <script src="portable-essay.js"></script>
+  <script src="portable-icons.js"></script>
+  <script src="portable-entry.js"></script>
+  <script src="author-note.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

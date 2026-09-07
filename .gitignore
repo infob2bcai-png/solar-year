@@ -1,0 +1,13 @@
+.env
+.env.*
+.wrangler/
+node_modules/
+_reports/
+*.log
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+.DS_Store
+Thumbs.db

@@ -1,0 +1,14 @@
+.mode-switch {
+  border-radius: 999px;
+  border-color: var(--sc-line-gold);
+  background: color-mix(in srgb, var(--sc-surface-main) 72%, transparent);
+}
+
+.mode-switch button {
+  border-radius: 999px;
+}
+
+.mode-switch button.active {
+  background: linear-gradient(180deg, var(--sc-accent-soft), var(--sc-accent-main));
+  color: var(--sc-midnight-blue);
+}

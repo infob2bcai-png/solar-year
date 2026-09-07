@@ -1,0 +1,22 @@
+.author-note,.author-settings-row,.journey-author-link { --author-link:var(--sc-accent-main); }
+html[data-theme="light"] .author-note,html[data-theme="light"] .author-settings-row,html[data-theme="light"] .journey-author-link { --author-link:#885900; }
+.author-note { padding:16px 0 24px; margin-bottom:24px; border-bottom:1px solid var(--sc-line-soft); }
+.author-note h2 { margin:0 0 12px; font-size:22px; line-height:1.4; letter-spacing:0; }
+.author-byline { display:flex; flex-wrap:wrap; gap:6px 16px; color:var(--sc-text-muted); font-size:12px; }
+.author-byline [data-author-name] { color:var(--author-link); font-weight:700; }
+.author-excerpt { max-width:70ch; font-size:16px; line-height:1.75; }
+.author-note [data-author-email],.author-settings-row a { display:inline-block; overflow-wrap:anywhere; font-size:14px; max-width:100%; padding:8px 0; color:var(--author-link); }
+#authorReturnDay { display:block; margin-top:16px; }
+.author-essay { margin-top:22px; border-top:1px solid var(--sc-line-soft); padding-top:16px; }
+.author-essay summary { cursor:pointer; padding:8px 0; color:var(--author-link); font-size:16px; line-height:1.5; }
+.author-context,#authorEssayStatus { font-size:13px; line-height:1.65; color:var(--sc-text-muted); }
+#authorEssayIndexLabel { display:grid; gap:8px; margin:20px 0; font-size:13px; }
+#authorEssayIndex { width:100%; min-width:0; height:48px; border:1px solid var(--sc-line-soft); border-radius:6px; background:var(--sc-surface-main); color:var(--sc-text-main); padding:8px; font-size:14px; }
+#authorEssayBody { max-width:70ch; font-size:16px; line-height:1.8; overflow-wrap:anywhere; }
+#authorEssayBody h3 { font-size:22px; line-height:1.5; margin:24px 0; }
+#authorEssayBody h4 { font-size:18px; line-height:1.5; margin:32px 0 14px; scroll-margin-top:110px; }
+#authorEssayBody p { margin:14px 0; }
+#authorEssayBody strong { font-weight:650; }
+#authorEssayClose { margin-top:20px; }
+.journey-author-link { display:block; margin-top:12px; border:0; padding:8px 0; background:transparent; color:var(--author-link); font-size:13px; text-align:left; }
+@media(max-width:390px) { .author-settings-row { flex-wrap:wrap; } .author-settings-row>div { flex-basis:100%; } }

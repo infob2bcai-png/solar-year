@@ -1,0 +1,34 @@
+:root,
+html[data-theme="dark"] {
+  --sc-bg-main: #0b132b;
+  --sc-bg-soft: #111a2b;
+  --sc-surface-main: #111a2b;
+  --sc-surface-glass: rgba(17, 26, 43, 0.74);
+  --sc-text-main: #f3f6fb;
+  --sc-text-muted: #a3adbb;
+  --sc-text-soft: #748095;
+  --sc-line-soft: #1e2740;
+  --sc-line-gold: rgba(244, 177, 59, 0.46);
+  --sc-accent-main: var(--sc-sunrise-gold);
+  --sc-accent-soft: var(--sc-soft-amber);
+  --sc-accent-glow: rgba(244, 177, 59, 0.28);
+  --sc-hero-image: url("assets/svg/scenes/solar-circle-scene-night.svg");
+  --sc-loading-svg: url("assets/svg/scenes/solar-circle-loading-night.svg");
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  --sc-bg-main: #f6f2eb;
+  --sc-bg-soft: #faf6f0;
+  --sc-surface-main: #ffffff;
+  --sc-surface-glass: rgba(255, 255, 255, 0.76);
+  --sc-text-main: #0b132b;
+  --sc-text-muted: #5a6472;
+  --sc-text-soft: #7b8492;
+  --sc-line-soft: #e6ded0;
+  --sc-line-gold: rgba(244, 177, 59, 0.42);
+  --sc-accent-glow: rgba(244, 177, 59, 0.24);
+  --sc-hero-image: url("assets/svg/scenes/solar-circle-scene-day.svg");
+  --sc-loading-svg: url("assets/svg/scenes/solar-circle-loading-day.svg");
+  color-scheme: light;
+}

@@ -1,0 +1,235 @@
+body {
+  background:
+    linear-gradient(180deg, rgba(11, 19, 43, 0.60), var(--sc-bg-main) 74%),
+    var(--sc-hero-image) center top / cover fixed,
+    var(--sc-bg-main);
+}
+
+html[data-theme="light"] body {
+  background:
+    linear-gradient(180deg, rgba(246, 242, 235, 0.36), var(--sc-bg-main) 76%),
+    var(--sc-hero-image) center top / cover fixed,
+    var(--sc-bg-main);
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.launch-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 16px;
+  padding: calc(var(--safe-top) + 24px) 24px calc(var(--safe-bottom) + 24px);
+  color: #f3f6fb;
+  background:
+    linear-gradient(180deg, rgba(11, 19, 43, 0.10), #0b132b 86%),
+    var(--sc-loading-svg) center / cover no-repeat,
+    var(--sc-bg-main);
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity .36s ease, visibility .36s ease;
+  visibility: visible;
+}
+
+.launch-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+html[data-theme="light"] .launch-screen {
+  color: var(--sc-midnight-blue);
+  background:
+    linear-gradient(180deg, rgba(246, 242, 235, 0.08), #f6f2eb 90%),
+    var(--sc-loading-svg) center / cover no-repeat,
+    var(--sc-bg-main);
+}
+
+.launch-orbit {
+  position: relative;
+  width: min(74vw, 340px);
+  aspect-ratio: 1;
+  border: 0;
+  background: transparent;
+}
+
+.launch-orbit img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 18px 38px rgba(0, 0, 0, 0.28));
+}
+
+.launch-marker {
+  position: absolute;
+  inset: 0;
+  transform-origin: center;
+}
+
+.launch-marker span {
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  width: 4px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--sc-accent-soft);
+  transform: translateX(-50%);
+}
+
+.launch-degree {
+  font-size: 32px;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.launch-copy {
+  max-width: 300px;
+  color: var(--sc-text-muted);
+  font-size: 15px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.today-hero {
+  min-height: 258px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--sc-radius-hero);
+  padding: 18px;
+  margin: 8px 0 16px;
+  background:
+    linear-gradient(180deg, rgba(11, 19, 43, 0.12), rgba(11, 19, 43, 0.58)),
+    var(--sc-hero-image) center / cover;
+  box-shadow: var(--sc-shadow-card);
+}
+
+html[data-theme="light"] .today-hero {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(246, 242, 235, 0.78)),
+    var(--sc-hero-image) center / cover;
+}
+
+.today-hero__mark {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: 124px;
+  height: 124px;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.28));
+}
+
+.today-hero__top,
+.today-hero__meta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--sc-text-main);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.today-hero__top strong {
+  font-size: 22px;
+  line-height: 26px;
+  font-variant-numeric: tabular-nums;
+}
+
+.today-hero__brand {
+  position: absolute;
+  z-index: 2;
+  left: 18px;
+  right: 18px;
+  bottom: 26px;
+  text-align: center;
+}
+
+.today-hero__brand strong {
+  display: block;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+.today-hero__meta {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 12px;
+  color: var(--sc-text-muted);
+}
+
+.screen-hero {
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--sc-radius-hero);
+  background: var(--sc-bg-soft);
+  box-shadow: var(--sc-shadow-card);
+}
+
+.screen-hero__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.screen-hero__copy {
+  position: absolute;
+  z-index: 2;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  padding: 16px;
+  border: 1px solid var(--sc-line-gold);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--sc-surface-main) 70%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.screen-hero__copy small,
+.screen-hero__copy span {
+  display: block;
+  color: var(--sc-text-muted);
+}
+
+.screen-hero__copy strong {
+  display: block;
+  margin: 4px 0;
+  font-size: 34px;
+  line-height: 40px;
+}
+
+.sun-path-arc,
+.moon-disc {
+  display: none;
+}
+
+.empty-state {
+  margin-top: 14px;
+  padding: 18px;
+}
+
+.empty-state strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 21px;
+}

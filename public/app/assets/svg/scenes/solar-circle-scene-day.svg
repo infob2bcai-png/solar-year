@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="360" viewBox="0 0 430 360" fill="none">
+  <title>Solar Year day scene</title>
+  <defs>
+    <linearGradient id="sky" x1="215" y1="0" x2="215" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D6E8F7"/>
+      <stop offset="0.48" stop-color="#FAF6F0"/>
+      <stop offset="1" stop-color="#F6F2EB"/>
+    </linearGradient>
+    <linearGradient id="water" x1="215" y1="192" x2="215" y2="322" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7E8EE" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#143D4A" stop-opacity="0.24"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(215 118) rotate(90) scale(100)">
+      <stop stop-color="#FFD99A"/>
+      <stop offset="0.34" stop-color="#F4B13B" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#F4B13B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="430" height="360" fill="url(#sky)"/>
+  <circle cx="215" cy="118" r="100" fill="url(#sunGlow)"/>
+  <circle cx="215" cy="118" r="18" fill="#FFF7E6"/>
+  <circle cx="215" cy="118" r="9" fill="#F4B13B"/>
+  <path d="M16 190C55 155 88 136 126 164C154 184 177 152 212 174C249 198 282 146 318 158C352 169 378 188 414 164V360H16V190Z" fill="#D6E8F7"/>
+  <path d="M0 218C44 178 72 166 112 188C150 210 180 162 220 185C258 207 289 160 331 178C372 196 395 178 430 156V360H0V218Z" fill="#9EBCCD"/>
+  <path d="M0 239C54 200 89 190 126 210C164 230 196 196 235 214C281 235 312 194 356 205C389 214 408 201 430 190V360H0V239Z" fill="#5E8393"/>
+  <rect y="215" width="430" height="145" fill="url(#water)"/>
+  <path d="M72 238H358M96 253H334M122 268H308M148 284H282M171 300H259" stroke="#FFD99A" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+  <path d="M0 295C48 270 72 285 104 270C147 251 184 276 214 260C260 236 298 272 332 252C373 228 400 252 430 236V360H0V295Z" fill="#143D4A" opacity="0.58"/>
+  <path d="M0 320C52 292 88 308 124 292C163 274 197 300 232 286C284 266 318 298 356 281C392 266 413 279 430 268V360H0V320Z" fill="#0B132B" opacity="0.72"/>
+</svg>

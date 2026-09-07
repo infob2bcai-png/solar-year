@@ -1,0 +1,217 @@
+.app-shell {
+  width: min(100%, 430px);
+  max-width: 430px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: calc(var(--safe-top) + 8px) 16px calc(96px + var(--safe-bottom));
+}
+
+.app-header {
+  position: relative;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 62px;
+  background: linear-gradient(180deg, var(--sc-bg-main) 72%, transparent);
+}
+
+html[data-theme="light"] .app-header {
+  background: linear-gradient(180deg, rgba(246, 242, 235, 0.94) 72%, transparent);
+}
+
+.brand-mark {
+  flex: 0 0 auto;
+  display: block;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  object-fit: contain;
+  background: transparent;
+  box-shadow: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 10px;
+}
+
+.brand div {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brand strong {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.brand small {
+  color: var(--sc-text-muted);
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.header-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-actions .chip-button,
+.header-actions .round-button {
+  display: inline-grid;
+  place-items: center;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 999px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.header-actions .round-button {
+  width: 42px;
+  padding: 0;
+}
+
+html[data-theme="dark"] .theme-light,
+html[data-theme="light"] .theme-dark {
+  display: none;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: calc(12px + var(--safe-bottom));
+  z-index: 40;
+  display: grid;
+  width: min(calc(100% - 24px), 410px);
+  height: 78px;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  gap: 0;
+  padding: 6px;
+  transform: translateX(-50%);
+  border-radius: 26px;
+  border-color: var(--sc-line-soft);
+  background: color-mix(in srgb, var(--sc-bg-main) 86%, transparent);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .34);
+  backdrop-filter: blur(18px);
+}
+
+html[data-theme="light"] .bottom-nav {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.bottom-nav button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: 64px;
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  color: var(--sc-text-muted);
+  font: inherit;
+}
+
+.bottom-nav button small {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 10px;
+  line-height: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bottom-nav .nav-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.bottom-nav .nav-icon::before,
+.bottom-nav .nav-icon::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1.8px solid currentColor;
+  border-radius: 50%;
+}
+
+.bottom-nav .nav-icon--calendar::before {
+  border-radius: 3px;
+}
+
+.bottom-nav .nav-icon--calendar::after {
+  inset: 8px 4px auto;
+  height: 0;
+  border-width: 1.8px 0 0;
+  border-radius: 0;
+}
+
+.bottom-nav .nav-icon--time::after {
+  inset: 5px auto auto 9px;
+  width: 1.8px;
+  height: 6px;
+  border: 0;
+  border-left: 1.8px solid currentColor;
+  border-radius: 0;
+}
+
+.bottom-nav .nav-icon--dates::before {
+  inset: 3px 6px;
+  border-radius: 2px;
+}
+
+.bottom-nav .nav-icon--dates::after {
+  inset: auto 5px 4px;
+  height: 0;
+  border-width: 1.8px 0 0;
+  border-radius: 0;
+}
+
+.bottom-nav .nav-icon--more::before {
+  inset: 5px;
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+
+.bottom-nav .nav-icon--more::after {
+  inset: 8px;
+  background: currentColor;
+  border: 0;
+}
+
+.bottom-nav button.active {
+  background: transparent;
+  color: var(--sc-accent-main);
+}
+
+.bottom-nav button.active::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  bottom: 7px;
+  border-radius: 50%;
+  background: var(--sc-accent-main);
+}

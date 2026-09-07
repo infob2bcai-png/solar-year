@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="430" viewBox="0 0 430 430" fill="none">
+  <title>Solar Year loading day</title>
+  <rect width="430" height="430" fill="#F6F2EB"/>
+  <image href="solar-circle-scene-day.svg" x="0" y="70" width="430" height="300" preserveAspectRatio="xMidYMid slice"/>
+  <circle cx="215" cy="190" r="118" fill="#0B132B" opacity="0.92"/>
+  <circle cx="215" cy="190" r="78" stroke="#F6F2EB" stroke-width="3" opacity="0.82"/>
+  <path d="M116 226C170 258 254 252 316 176" stroke="#F6F2EB" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 10"/>
+  <circle cx="316" cy="176" r="12" fill="#F4B13B" stroke="#FFD99A" stroke-width="3"/>
+  <circle cx="215" cy="204" r="24" fill="#F4B13B"/>
+  <path d="M168 230H262M150 244H280M136 258H294" stroke="#FFD99A" stroke-width="3" stroke-linecap="round" opacity="0.72"/>
+</svg>

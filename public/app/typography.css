@@ -1,0 +1,32 @@
+body {
+  font-family: var(--sc-font-sans);
+  color: var(--sc-text-main);
+}
+
+.section-title h1 {
+  color: var(--sc-text-main);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.section-title small,
+.card-kicker,
+.today-hero__brand small {
+  color: var(--sc-accent-main);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 750;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.clock-time,
+.launch-degree,
+.day-length-clock > strong,
+.metric-card strong,
+.screen-hero__copy strong {
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}

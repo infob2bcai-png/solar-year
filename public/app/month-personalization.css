@@ -1,0 +1,40 @@
+.month-tree-image{display:block;object-fit:contain;flex:none;background:#fff;border-radius:50%;padding:2px}
+#monthHeaderTree{margin:0}
+.month-name-line{display:flex;align-items:center;gap:10px}.month-name-copy{flex:1;min-width:0}.month-name-copy h1{overflow-wrap:anywhere}
+#monthScreen>.section-title>div{min-width:0;flex:1}#monthRange{flex:none}
+.month-canonical,.month-personal-name{margin:4px 0 8px;overflow-wrap:anywhere}
+.month-personal-name{color:var(--gold,#f9b137);font-weight:600}
+.month-personal-icon{object-fit:contain;vertical-align:middle;margin-inline:6px;flex:none}.month-secondary-icon{flex:none}
+.month-personal-icon{width:32px;height:32px;max-width:32px;max-height:32px}#monthCustomSvgPreview{width:48px;height:48px;object-fit:contain}
+#todayHeroSolarDate,#todayIntegratedMeta,#solarDate,#dayDetailTitle,#convertDate{overflow-wrap:anywhere;min-width:0}
+.calendar-event-row small{overflow-wrap:anywhere;min-width:0}
+.today-hero.has-personal-month{display:flex;flex-direction:column}
+.today-hero.has-personal-month .today-hero__brand{position:relative;inset:auto;margin-top:auto;padding-top:110px}
+.today-hero.has-personal-month .today-hero__meta{position:relative;inset:auto;margin-top:12px}
+.today-hero.has-personal-month .today-hero__mark{top:118px}
+.month-file-field{display:grid;gap:6px;margin:16px 0;font-size:14px}
+.month-journey-panel{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 0;border-block:1px solid var(--line,#334155);margin:12px 0}
+.month-journey-panel[hidden],.month-tree-image[hidden]{display:none}
+.month-journey-panel p{margin:6px 0;font-size:13px}
+.month-tree-progress{position:relative;width:120px;height:120px;flex:none}
+.month-tree-progress>img{position:absolute;inset:12px}
+.month-tree-progress>svg{position:absolute;inset:0;width:120px;height:120px;stroke-width:3;stroke-linecap:round;pointer-events:none}
+.month-tree-progress .complete{stroke:#35b98c}.month-tree-progress .pending{stroke:#82909b}
+.month-stage-progress{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:12px;max-width:460px}
+.month-unlocked,.month-day-state{font-size:13px;color:var(--gold,#f9b137)}
+.day-cell[data-journey-state="complete"]{box-shadow:inset 0 -3px #35b98c}
+.day-cell[data-journey-state="read"]{box-shadow:inset 0 -2px #7da9c7}
+.day-cell[data-journey-state="note"]{box-shadow:inset 0 -2px #e2a841}
+.month-completion-notice{padding:12px 0;color:var(--text,#eef4f8);border-bottom:2px solid #35b98c}
+.month-overview{margin-top:24px;padding:16px 0;border-top:1px solid var(--line,#334155)}
+.month-overview>summary{cursor:pointer;font-size:18px;font-weight:600;min-height:44px}
+.month-overview>label{display:flex;gap:8px;align-items:center;margin:8px 0 16px}.month-overview input{width:20px;height:20px}
+.month-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
+.month-overview-row{display:flex;align-items:center;text-align:left;gap:12px;width:100%;min-height:68px;padding:12px 0;border:0;border-bottom:1px solid var(--line,#334155);background:none;color:inherit;border-radius:0}
+.month-overview-row>span{flex:1;min-width:0;overflow-wrap:anywhere}.month-overview-row strong,.month-overview-row small{display:block}.month-overview-row small{font-size:12px}
+.month-editor{width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 32px);overflow:auto;padding:20px;border:1px solid var(--line,#334155);border-radius:8px;background:var(--panel-solid,#101827);color:var(--text,#eef4f8)}
+.month-editor::backdrop{background:#0009}.month-editor header{display:flex;align-items:center;justify-content:space-between;gap:12px}.month-editor h2{font-size:22px;overflow-wrap:anywhere;margin:0}
+.month-editor label{display:grid;gap:6px;margin:16px 0;font-size:14px}.month-editor input,.month-editor select{width:100%;min-width:0;min-height:44px;font:inherit;letter-spacing:0}
+.month-editor button{max-width:100%;white-space:normal;overflow-wrap:anywhere;margin:6px 8px 6px 0}.month-editor details{margin-top:16px}.month-editor ol{padding-left:20px;font-size:13px;overflow-wrap:anywhere}.month-editor p{font-size:13px;overflow-wrap:anywhere}
+@media(max-width:600px){.month-overview-grid{grid-template-columns:1fr}.month-journey-panel{gap:12px}.month-journey-panel>div:not(.month-tree-progress){flex:1;min-width:140px}.month-editor{padding:14px}}
+@media(max-width:600px){#monthScreen>.section-title{flex-wrap:wrap;gap:8px}#monthScreen>.section-title>div{flex-basis:100%}#monthRange{margin-left:50px}}

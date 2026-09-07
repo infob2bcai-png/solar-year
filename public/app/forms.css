@@ -1,0 +1,43 @@
+.converter-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+
+.converter-card label {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  color: var(--sc-text-muted);
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.converter-card input,
+.converter-card select,
+.converter-card textarea,
+.setting-row select {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 52px;
+  border-radius: 18px;
+  border: 1px solid var(--sc-line-soft);
+  background: color-mix(in srgb, var(--sc-surface-main) 82%, transparent);
+  color: var(--sc-text-main);
+  padding: 0 16px;
+  font: inherit;
+}
+
+.converter-card textarea {
+  min-height: 120px;
+  padding: 12px 16px;
+  resize: vertical;
+}
+
+.switch span {
+  background: var(--sc-line-soft);
+}
+
+.switch input:checked + span {
+  background: var(--sc-accent-main);
+}

@@ -1,0 +1,15 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: no-referrer
+  Permissions-Policy: geolocation=(self), camera=(), microphone=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://api.open-meteo.com https://geocoding-api.open-meteo.com; frame-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'
+  Cache-Control: public, max-age=0, must-revalidate
+
+/android/*.apk
+  Content-Type: application/vnd.android.package-archive
+  Content-Disposition: attachment
+
+/downloads/*.zip
+  Content-Type: application/zip
+  Content-Disposition: attachment

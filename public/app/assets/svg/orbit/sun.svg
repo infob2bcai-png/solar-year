@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <title>Sun</title>
+  <defs><radialGradient id="gold"><stop stop-color="#ffe29a"/><stop offset=".78" stop-color="#ffc955"/><stop offset="1" stop-color="#efaa29"/></radialGradient></defs>
+  <g fill="none" stroke="#edb54c" stroke-width="2" stroke-linecap="round">
+    <path d="M90 4v10m0 152v10M4 90h10m152 0h10M29 29l7 7m108 108 7 7M29 151l7-7M144 36l7-7M57 11l4 9m58 140 4 9M11 57l9 4m140 58 9 4M11 123l9-4m140-58 9-4M57 169l4-9m58-140 4-9"/>
+    <circle cx="90" cy="90" r="70" stroke-opacity=".35"/>
+  </g>
+  <circle cx="90" cy="90" r="64" fill="url(#gold)" stroke="#ffe4a0"/>
+</svg>

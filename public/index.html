@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Солнечный год: ритм природы, собственный выбор и память о прожитом. Знакомство с проектом ALEX_DOC.">
+  <title>Солнечный год · Ритм. Выбор. Память.</title>
+  <link rel="icon" href="app/assets/svg/icons/solar-year-launcher.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="presentation.css">
+  <link rel="stylesheet" href="reference-v2.css">
+</head>
+<body>
+  <a class="skip" href="#meaning">К содержанию</a>
+  <header class="site-header">
+    <a class="brand" href="#home"><img src="app/assets/svg/logo/solar-circle-logo-full-mark.svg" width="40" height="40" alt=""><span>Солнечный год<small>Ритм · Выбор · Память</small></span></a>
+    <nav aria-label="Разделы презентации"><a href="#meaning">Идея</a><a href="#calendar">Календарь</a><a href="#choice">Выбория</a><a href="#journey">Путь месяца</a><a href="#guide">Экраны</a></nav>
+    <div class="header-actions"><label class="theme-switch" title="Светлая тема"><input id="lightTheme" type="checkbox" aria-label="Светлая тема" checked><span>Свет</span></label><a class="button primary compact" href="#start">Скачать</a></div>
+  </header>
+  <main>
+    <section id="home" class="hero">
+      <canvas id="heroScene" aria-label="Дерево жизни на фоне природного пейзажа, символ непрерывности и перемен"></canvas>
+      <div class="hero-copy"><p class="eyebrow">Ритм · Выбор · Память</p><h1>Солнечный год</h1><p class="hero-line">Мир меняется каждый день.<br>Найди свою опору в этом движении.</p><p class="hero-sub">Движение Солнца, погода, личные записи и практика выбора.<br class="desktop-break"> Не просто смена дат, а календарь, который постепенно становится твоим.</p><div class="actions"><a class="button primary" href="#meaning">Как это работает <span aria-hidden="true">↓</span></a><a class="button secondary" href="app/index.html">Открыть приложение <span aria-hidden="true">↗</span></a></div></div>
+      <p class="hero-foot"><span id="livePosition">Текущий солнечный шаг</span><span>Бесплатно · Без рекламы · 10018 / пробная версия</span></p>
+    </section>
+    <section id="meaning" class="intro band">
+      <p class="eyebrow">01 / Зачем существует проект</p>
+      <h2>Календарь, который<br>постепенно становится твоим.</h2>
+      <p class="lead">Иногда день заполнен делами, а ответ на вопрос «зачем?» теряется. Мы помним сроки, но забываем собственное направление. Видим смену дат, но не замечаем свой путь.</p>
+      <p>«Солнечный год» соединяет внешний ритм с внутренним выбором. Солнце помогает увидеть год целиком. Погода и ветер возвращают к условиям настоящего дня. Выбория предлагает остановиться перед привычной реакцией, выбрать следующий шаг и сохранить его в заметке.</p>
+      <div class="three-pillars"><article><span>01</span><h3>Ритм</h3><p>Где я сейчас во времени и в природе?</p></article><article><span>02</span><h3>Выбор</h3><p>Что важно мне и какой шаг доступен сегодня?</p></article><article><span>03</span><h3>Память</h3><p>Что я прожил, понял и хочу взять с собой?</p></article></div>
+      <p class="meaning-equation"><span>Ритм</span><b>+</b><span>Выбор</span><b>+</b><span>Память</span><b>=</b><strong>Мой солнечный год</strong></p>
+    </section>
+    <div id="chapters"></div>
+    <section id="guide" class="band guide-section">
+      <p class="eyebrow">13 / От смысла к своему дню</p><h2>Одно приложение.<br>Разные точки внимания.</h2>
+      <p class="lead">Утром — увидеть день. В течение дня — учесть обстоятельства. В момент сомнения — выбрать действие. Вечером — сохранить то, что хочется помнить.</p>
+      <div class="daily-flow"><article><small>Утро</small><h3>Где я сегодня?</h3><p>Время, свет, место и то, что сейчас важно.</p></article><article><small>День</small><h3>Что изменилось?</h3><p>Обстоятельства, с которыми стоит сверить план.</p></article><article><small>Выбор</small><h3>Что я выбираю?</h3><p>Один посильный шаг в своём направлении.</p></article><article><small>Вечер</small><h3>Что запомнить?</h3><p>Мысль, решение или момент, который хочется сохранить.</p></article></div>
+      <div class="guide-layout"><nav id="screenNav" aria-label="Экраны приложения"></nav><article id="screenGuide" aria-live="polite"></article></div>
+      <div id="previewHost" hidden><div class="preview-heading"><strong id="previewTitle">Приложение</strong><button id="closePreview" type="button" class="button secondary">Закрыть просмотр</button></div><iframe id="appPreview" title="Рабочая веб-версия Солнечного года"></iframe></div>
+    </section>
+    <section id="privacy" class="band privacy-section">
+      <p class="eyebrow">14 / Личный путь не обязан быть публичным</p><h2>Ваши записи —<br>не материал для чужой оценки.</h2><p>Онлайн-сайт загружается через Cloudflare. Хостинг получает технические данные запроса, включая IP-адрес. Это не отправка ваших заметок или прохождения Выбории. Полный ZIP позволяет открыть календарь локально без загрузки сайта.</p>
+      <div class="prose-columns"><div><p>Для календаря не нужны аккаунт, подписка или публикация результатов. Заметки, названия месяцев и прогресс остаются в локальном хранилище. Здесь нет ленты, сравнения с другими людьми или платы за открытый месяц.</p><p>Веб-версия хранит записи в браузере, Android — в приложении. Это разные хранилища, автоматической синхронизации нет. Для переноса есть резервная копия.</p></div><div><p>Свежая погода требует сети: по нажатию «Обновить» Open-Meteo получает координаты места. Поиск города отправляет название города. GPS запрашивается только по вашей команде.</p><p>Исследование добровольное: предварительная отметка не является согласием. Сервер исследования ещё не подключён, отправки этой записи нет. Презентация не содержит аналитики и трекеров.</p></div></div>
+      <details><summary>Что важно знать о локальной версии и резервных копиях</summary><p>Веб-данные зависят от браузера, пути к файлу и его правил хранения. Очистка данных браузера, приватный режим или перенос папки могут сделать прежние записи недоступными. Экспортируйте копию перед обновлением или переносом. Backup JSON не зашифрован и может содержать заметки и точные координаты: не отправляйте его в общий чат.</p><p>Браузерные GPS, работа с файлами и сетевые запросы зависят от разрешений и политики браузера. Android-уведомления в локальной веб-версии недоступны; записи напоминаний сохраняются, но закрытый браузер не заменяет мобильное приложение.</p><a href="documents/PRIVACY.md">Полное описание данных и разрешений</a></details>
+    </section>
+    <section id="start" class="band start-section">
+      <p class="eyebrow">15 / Начать с того, что важно вам</p><h2>Не нужно менять всю жизнь.<br>Можно выбрать один шаг.</h2>
+      <p class="lead">Откройте сегодняшний день. Выберите одну цель или один вопрос. Пусть первая запись будет небольшой, но вашей.</p>
+      <div class="start-options"><article><span class="option-number">01 / Компьютер</span><h3>Открыть и попробовать</h3><p>Откройте календарь в браузере или скачайте полный пакет для компьютера. После распаковки <code>index.html</code> работает без сервера.</p><a class="button primary" href="app/index.html">Открыть веб-приложение ↗</a><p><a href="downloads/Solar-Year-10018-presentation-v2-20260906.zip" download>Скачать весь пакет · ZIP, 5,1 МБ</a></p><small>Для локального файла проверен Edge на Windows. Погода требует интернета и явного обновления.</small></article><article><span class="option-number">02 / Android</span><h3>Взять день с собой</h3><p>Тот же проект в мобильном приложении. Бесплатный подписанный APK, без рекламы и платных функций. Google Play не нужен.</p><a class="button primary" href="android/Solar-Year-1.0.0-10018.apk" download>Скачать APK · 5,03 МБ ↓</a><small>1.0.0 / 10018. Заявлен Android 7.0+. Это пробная сборка; проверка конкретных телефонов ещё впереди.</small></article></div>
+      <details><summary>Установка, обновление и статус проверки</summary><ol><li>Откройте полученный APK на Android. Если доверяете отправителю, разрешите установку для приложения, через которое открываете файл.</li><li>Не отключайте системную защиту или Play Protect. При блокировке остановитесь и пришлите автору текст сообщения.</li><li>Перед обновлением экспортируйте резервную копию. Устанавливайте новую версию поверх старой; не удаляйте приложение ради обхода конфликта подписи.</li></ol><p>Для 10018 прошли автоматические и браузерные проверки. Полная проверка именно этого APK на эмуляторе и физических телефонах ещё не проведена. Скорость запуска и доставка уведомлений требуют проверки. Важные напоминания пока дублируйте привычным способом.</p><p>SHA-256 APK:</p><code class="hash">2152f12806646ee09525958b80995322bbe23e580d9a5933fc2af28f1dddbd7f</code><p><a href="android/BUILD_MANIFEST.json">Точная сборка</a> · <a href="SHA256SUMS.txt">Контрольные суммы пакета</a> · <a href="documents/THIRD_PARTY_NOTICES.md">Источники и лицензии</a></p></details>
+      <div class="feedback"><h3>Покажите, как это ощущается у вас.</h3><p>Что стало понятнее? Что лишнее? Где трудно сделать следующий шаг? Для ошибки укажите сборку 10018, модель телефона или браузер и действия перед сбоем. Скриншот — без личных записей и координат.</p><a href="mailto:petrovav024026@gmail.com?subject=Солнечный%20год%2010018%20—%20отзыв">petrovav024026@gmail.com ↗</a></div>
+    </section>
+    <section class="band author-section" id="author"><p class="eyebrow">Слова автора</p><h2>ALEX_DOC</h2><div id="authorWords" class="author-words"></div><a href="app/index.html#about">Полный авторский текст в приложении ↗</a></section>
+    <section class="closing band"><div class="finale-flow"><span>Мир движется</span><i aria-hidden="true">↓</i><span>Солнце даёт ритм</span><i aria-hidden="true">↓</i><span>Погода и ветер показывают условия</span><i aria-hidden="true">↓</i><span>Выбория помогает выбрать действие</span><i aria-hidden="true">↓</i><span>Заметки сохраняют прожитое</span><i aria-hidden="true">↓</i><strong>Год становится твоей историей</strong></div><p>Ценность человека<br>не появляется после курса.</p><h2>Она уже есть.</h2><p>Мир не перестанет меняться. Но можно снова выбирать, как пройти через его движение, сохраняя себя.</p><a class="button secondary" href="app/index.html">Мой следующий шаг ↗</a></section>
+  </main>
+  <footer class="site-footer"><span>Солнечный год · ALEX_DOC · 2026</span><a href="#home">К началу ↑</a><span>Пробный пакет 10018 · Без трекеров</span></footer>
+  <div class="chapter-dock"><label for="chapterSelect">Глава</label><select id="chapterSelect" aria-label="Перейти к главе"></select><a href="app/index.html">Приложение ↗</a></div>
+  <script src="app/astronomy.browser.min.js"></script><script src="app/core/orbit-view-model.js"></script><script src="app/core/calendar-core.js"></script><script src="author-copy.js"></script><script src="course-copy.js"></script><script src="story.js"></script><script src="presentation.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none" >
+  <title>Solar Year icon light</title>
+  <desc>Solar Year editable SVG asset generated from reference decomposition v0.1.0.</desc>
+  
+  <circle cx="64" cy="64" r="52" stroke="#F4B13B" stroke-width="3" fill="none"/><circle cx="64" cy="64" r="22" stroke="#F4B13B" stroke-width="5"/><path d="M64 18V30M64 98V110M18 64H30M98 64H110M31 31L40 40M88 88L97 97M31 97L40 88M88 40L97 31" stroke="#F4B13B" stroke-width="5" stroke-linecap="round"/>
+</svg>

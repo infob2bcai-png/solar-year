@@ -1,0 +1,26 @@
+{
+  "schema": "solar-year.release-manifest.v1",
+  "channel": "candidate",
+  "productionApproved": false,
+  "createdAt": "2026-09-06T14:42:44.0587956Z",
+  "packageId": "com.solarcircle.clock",
+  "version": "1.0.0",
+  "versionCode": 10018,
+  "distribution": "free-direct-apk",
+  "minimumAndroidApi": 24,
+  "apk": {
+    "file": "Solar-Year-1.0.0-10018.apk",
+    "bytes": 5032736,
+    "sha256": "2152f12806646ee09525958b80995322bbe23e580d9a5933fc2af28f1dddbd7f",
+    "signerCertificateSha256": "db48ae41dc5d2790209416e043e592d55ec83deb934579019e1faee3481b9a3c",
+    "downloadUrl": null,
+    "debuggable": false
+  },
+  "verification": {
+    "signature": "PASS",
+    "packagedWebAssets": 98,
+    "physicalDevices": "NOT_RUN",
+    "productionAcceptance": "PENDING",
+    "independentKeyRecovery": "PENDING"
+  }
+}

@@ -1,0 +1,57 @@
+.time-card,
+.fact-card,
+.converter-card,
+.setting-row,
+.explain-card,
+.about-card,
+.credit-item,
+.metric-card,
+.empty-state {
+  border: 1px solid var(--sc-line-soft);
+  background: var(--sc-surface-glass);
+  color: var(--sc-text-main);
+  box-shadow: var(--sc-shadow-card);
+  backdrop-filter: blur(18px);
+}
+
+.time-card,
+.converter-card,
+.explain-card,
+.about-card,
+.empty-state {
+  border-radius: var(--sc-radius-card);
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.metric-card {
+  min-height: 106px;
+  padding: 16px;
+  border-radius: var(--sc-radius-small);
+}
+
+.metric-card span,
+.empty-state p {
+  color: var(--sc-text-muted);
+}
+
+.metric-card span,
+.metric-card strong {
+  display: block;
+}
+
+.metric-card span {
+  font-size: 11px;
+  line-height: 16px;
+  margin-bottom: 12px;
+}
+
+.metric-card strong {
+  font-size: 22px;
+  line-height: 28px;
+}

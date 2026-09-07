@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"><title>Solar Year</title><rect width="64" height="64" rx="8" fill="#080A10"/><path d="M21,32a11,11 0 1,0 22,0a11,11 0 1,0 -22,0" fill="none" stroke="#F4CB69" stroke-width="0.45"/>
+<path d="M15,32a17,17 0 1,0 34,0a17,17 0 1,0 -34,0" fill="none" stroke="#F4CB69" stroke-width="0.45"/>
+<path d="M10,32a22,22 0 1,0 44,0a22,22 0 1,0 -44,0" fill="none" stroke="#F4CB69" stroke-width="1.6"/>
+<path d="M55.3,32L59,32" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M55.931,36.22L58.59,36.689" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M54.835,40.311L57.372,41.235" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M52.178,43.65L55.383,45.5" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M50.615,47.62L52.683,49.355" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M47.62,50.615L49.355,52.683" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M43.65,52.178L45.5,55.383" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M40.311,54.835L41.235,57.372" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M36.22,55.931L36.689,58.59" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M32,55.3L32,59" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M27.78,55.931L27.311,58.59" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M23.689,54.835L22.765,57.372" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M20.35,52.178L18.5,55.383" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M16.38,50.615L14.645,52.683" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M13.385,47.62L11.317,49.355" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M11.822,43.65L8.617,45.5" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M9.165,40.311L6.628,41.235" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M8.069,36.22L5.41,36.689" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M8.7,32L5,32" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M8.069,27.78L5.41,27.311" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M9.165,23.689L6.628,22.765" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M11.822,20.35L8.617,18.5" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M13.385,16.38L11.317,14.645" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M16.38,13.385L14.645,11.317" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M20.35,11.822L18.5,8.617" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M23.689,9.165L22.765,6.628" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M27.78,8.069L27.311,5.41" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M32,8.7L32,5" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M36.22,8.069L36.689,5.41" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M40.311,9.165L41.235,6.628" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M43.65,11.822L45.5,8.617" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M47.62,13.385L49.355,11.317" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M50.615,16.38L52.683,14.645" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M52.178,20.35L55.383,18.5" fill="none" stroke="#F4F0D9" stroke-width="0.8"/>
+<path d="M54.835,23.689L57.372,22.765" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M55.931,27.78L58.59,27.311" fill="none" stroke="#889497" stroke-width="0.4"/>
+<path d="M26.5,32a5.5,5.5 0 1,0 11,0a5.5,5.5 0 1,0 -11,0" fill="#F4CB69"/>
+<path d="M29,32a3,3 0 1,0 6,0a3,3 0 1,0 -6,0" fill="#FFF0B7"/>
+<path d="M32,32L45.545,14.664" fill="none" stroke="#69BDFC" stroke-width="1"/>
+<path d="M38.545,14.664a7,7 0 1,0 14,0a7,7 0 1,0 -14,0" fill="#66B8FF" stroke="#BDE8FF" stroke-width="0.55"/></svg>

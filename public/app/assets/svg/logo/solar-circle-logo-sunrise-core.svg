@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none" >
+  <title>Solar Year sunrise core</title>
+  <desc>Solar Year editable SVG asset generated from reference decomposition v0.1.0.</desc>
+  <defs>
+    <radialGradient id="sc-sky" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#FFD99A" stop-opacity="0.95"/>
+      <stop offset="48%" stop-color="#143D4A"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </radialGradient>
+    <radialGradient id="sc-sun-glow" cx="50%" cy="62%" r="38%">
+      <stop offset="0%" stop-color="#FFF8D8"/>
+      <stop offset="40%" stop-color="#F4B13B"/>
+      <stop offset="100%" stop-color="#F4B13B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sc-water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#143D4A"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </linearGradient>
+    <linearGradient id="sc-day-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FBF7EF"/>
+      <stop offset="60%" stop-color="#FBF7EF"/>
+      <stop offset="100%" stop-color="#dfe5e1"/>
+    </linearGradient>
+    <linearGradient id="sc-night-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#06101D"/>
+    </linearGradient>
+    <filter id="sc-soft-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  
+  <defs><clipPath id="clip-128-128-100"><circle cx="128" cy="128" r="100"/></clipPath></defs>
+  <circle cx="128" cy="128" r="100" fill="url(#sc-sky)" stroke="#0B132B" stroke-width="4"/>
+  <g clip-path="url(#clip-128-128-100)">
+    
+    <rect x="28" y="163" width="200" height="100" fill="url(#sc-water)" opacity="0.78"/>
+    <path d="M101.7 153.4L49.1 134.3" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M104.8 147.3L58.4 116.0" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M109.3 142.2L71.8 100.6" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M114.9 138.3L88.6 88.8" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M121.2 135.8L107.7 81.5" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M128.0 135.0L128.0 79.0" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M134.8 135.8L148.3 81.5" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M141.1 138.3L167.4 88.8" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M146.7 142.2L184.2 100.6" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M151.2 147.3L197.6 116.0" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/> <path d="M154.3 153.4L206.9 134.3" stroke="#FFD99A" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="128" cy="163" r="82" fill="url(#sc-sun-glow)" filter="url(#sc-soft-glow)"/>
+    <path d="M70 163a58 58 0 0 1 116 0" fill="#F4B13B"/>
+    <path d="M103 149V83M153 149V93M128 158V68" stroke="#FFD99A" stroke-width="2" opacity="0.55"/>
+    <path d="M68.0 175H188.0" stroke="#FFD99A" stroke-width="3" stroke-linecap="round" opacity="0.75"/> <path d="M53.0 187H203.0" stroke="#FFD99A" stroke-width="3" stroke-linecap="round" opacity="0.66"/> <path d="M40.0 199H216.0" stroke="#FFD99A" stroke-width="3" stroke-linecap="round" opacity="0.57"/> <path d="M30.0 211H226.0" stroke="#FFD99A" stroke-width="3" stroke-linecap="round" opacity="0.48"/> <path d="M23.0 223H233.0" stroke="#FFD99A" stroke-width="3" stroke-linecap="round" opacity="0.39"/>
+  </g>
+  <circle cx="128" cy="128" r="72.0" stroke="#F6F2EB" stroke-width="4" opacity="0.82"/>
+  <path d="M128 6V46M128 210V250M6 128H46M210 128H250" stroke="#0B132B" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+  
+  
+
+</svg>
